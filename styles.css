@@ -10,6 +10,14 @@
 body {
   height: 100vh;
   background-color: grey;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
 }
 
 .headContainer {
@@ -76,6 +84,9 @@ form {
       justify-self: center;
   width: 300px;
   height: 300px;
+  z-index: 9;
+  position: absolute;
+  top: 25%;
 }
 
 label {
@@ -101,6 +112,7 @@ label {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   text-align: center;
+  overflow: scroll;
 }
 
 .card hr {

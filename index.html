@@ -14,26 +14,30 @@
         <button class="addBook" id="addBook">+</button>
     </div>
     
-    <div class="container">
+
+    <form action="#" class="hideForm" id="form">
+        <label for="title">Book Title:</label>
+        <input type="text" class="titleInput" id="title">
+
+        <label for="author">Author:</label>
+        <input type="text" class="authorInput" id="author">
+
+        <label for="pages">Number of Pages:</label>
+        <input type="number" name="pages" id="pages" class="pagesInput">
+
+        <label for="read">Have you read?</label>
+        <input type="checkbox" name="read" id="read" class="readInput">
+
+        <input type="button" value="Add Book" class="submitInput">
+    </form>
+
+    
+    <div class="container" id="container">
         <h1 class = "show" id="initDescription">add books using the button above</h1>
         
-        <form action="#" class="hideForm" id="form">
-            <label for="title">Book Title:</label>
-            <input type="text" class="titleInput" id="title">
+  
 
-            <label for="author">Author:</label>
-            <input type="text" class="authorInput" id="author">
-
-            <label for="pages">Number of Pages:</label>
-            <input type="number" name="pages" id="pages" class="pagesInput">
-
-            <label for="read">Have you read?</label>
-            <input type="checkbox" name="read" id="read" class="readInput">
-
-            <input type="submit" value="Add Book" class="submitInput">
-        </form>
-
-        <div class="card">
+        <!-- <div class="card">
             <div class="bookNameContainer">
                 <p class="bookNameParent">Title:</p>
                 <p class="bookNameChild">Mistborn</p>
@@ -54,7 +58,7 @@
                 <input type="checkbox" name="read" id="read">
             </div>
             <button class="remove">Remove</button>
-        </div>
+        </div> -->
 
     </div>
 </body>
