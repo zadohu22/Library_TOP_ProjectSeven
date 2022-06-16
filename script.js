@@ -77,110 +77,113 @@ const addBookToLibrary = () => {
 }
 
 function populateDomWithBookInfo(){
-    library.forEach((e, i) => {
-    
-        let newCard = document.createElement('div');
-        newCard.classList.add('card');
-        container.appendChild(newCard);
-        newCard.id = "cardDiv";
-        newCard.setAttribute('data-index', i);
+    if(!(title.value == '' && author.value == '')){
+   
+        library.forEach((e, i) => {
         
-        
-        let nameContainer = document.createElement('div');
-        nameContainer. classList.add('bookNameContainer');
-        newCard.appendChild(nameContainer);
-        
-        let nameParent = document.createElement('p');
-        nameParent.classList.add('bookNameParent');
-        nameParent.textContent = 'Title:';
-        nameContainer.appendChild(nameParent);
-        
-        let nameChild = document.createElement('p');
-        nameChild.classList.add('bookNameChild');
-        nameChild.textContent = e.title;
-        nameContainer.appendChild(nameChild);
-        
-        function makeHr(){
-            let hr = document.createElement('hr');
-            newCard.appendChild(hr);
-        }
-        
-        makeHr();
+            let newCard = document.createElement('div');
+            newCard.classList.add('card');
+            container.appendChild(newCard);
+            newCard.id = "cardDiv";
+            newCard.setAttribute('data-index', i);
+            
+            
+            let nameContainer = document.createElement('div');
+            nameContainer. classList.add('bookNameContainer');
+            newCard.appendChild(nameContainer);
+            
+            let nameParent = document.createElement('p');
+            nameParent.classList.add('bookNameParent');
+            nameParent.textContent = 'Title:';
+            nameContainer.appendChild(nameParent);
+            
+            let nameChild = document.createElement('p');
+            nameChild.classList.add('bookNameChild');
+            nameChild.textContent = e.title;
+            nameContainer.appendChild(nameChild);
+            
+            function makeHr(){
+                let hr = document.createElement('hr');
+                newCard.appendChild(hr);
+            }
+            
+            makeHr();
 
-        let authorContainer = document.createElement('div');
-        authorContainer.classList.add('bookAuthorContainer');
-        newCard.appendChild(authorContainer);
-        
-        let authorParent = document.createElement('p');
-        authorParent.classList.add('bookauthorParent');
-        authorParent.textContent = 'Author:';
-        authorContainer.appendChild(authorParent);
-        
-        let authorChild = document.createElement('p');
-        authorChild.classList.add('bookauthorChild');
-        authorChild.textContent = e.author;
-        authorContainer.appendChild(authorChild);
-        
-        makeHr();
+            let authorContainer = document.createElement('div');
+            authorContainer.classList.add('bookAuthorContainer');
+            newCard.appendChild(authorContainer);
+            
+            let authorParent = document.createElement('p');
+            authorParent.classList.add('bookauthorParent');
+            authorParent.textContent = 'Author:';
+            authorContainer.appendChild(authorParent);
+            
+            let authorChild = document.createElement('p');
+            authorChild.classList.add('bookauthorChild');
+            authorChild.textContent = e.author;
+            authorContainer.appendChild(authorChild);
+            
+            makeHr();
 
-        let pagesContainer = document.createElement('div');
-        pagesContainer.classList.add('pagesNameContainer');
-        newCard.appendChild(pagesContainer);
-        
-        let pagesParent = document.createElement('p');
-        pagesParent.classList.add('pagesNameParent');
-        pagesParent.classList.add('bookTitle');
-        pagesParent.textContent = 'Pages:';
-        pagesContainer.appendChild(pagesParent);
-        
-        let pagesChild = document.createElement('p');
-        pagesChild.classList.add('pagesNameChild');
-        pagesChild.textContent = e.pages;
-        pagesContainer.appendChild(pagesChild);
+            let pagesContainer = document.createElement('div');
+            pagesContainer.classList.add('pagesNameContainer');
+            newCard.appendChild(pagesContainer);
+            
+            let pagesParent = document.createElement('p');
+            pagesParent.classList.add('pagesNameParent');
+            pagesParent.classList.add('bookTitle');
+            pagesParent.textContent = 'Pages:';
+            pagesContainer.appendChild(pagesParent);
+            
+            let pagesChild = document.createElement('p');
+            pagesChild.classList.add('pagesNameChild');
+            pagesChild.textContent = e.pages;
+            pagesContainer.appendChild(pagesChild);
 
-        makeHr();
+            makeHr();
 
-        let readContainer = document.createElement('div')
-        readContainer.classList.add('readContainer');
-        newCard.appendChild(readContainer);
-        
-        let readLabel = document.createElement('label');
-        readLabel.setAttribute('for', read);
-        readLabel.classList.add('bookTitle');
-        readLabel.classList.add('readLabel');
-        readLabel.textContent = 'Read?';
-        readContainer.appendChild(readLabel);
+            let readContainer = document.createElement('div')
+            readContainer.classList.add('readContainer');
+            newCard.appendChild(readContainer);
+            
+            let readLabel = document.createElement('label');
+            readLabel.setAttribute('for', read);
+            readLabel.classList.add('bookTitle');
+            readLabel.classList.add('readLabel');
+            readLabel.textContent = 'Read?';
+            readContainer.appendChild(readLabel);
 
-        let readCheckBox = document.createElement('input');
-        readCheckBox.setAttribute('type', 'checkbox');
-        readCheckBox.setAttribute('name', 'read');
-        if(haveRead.checked){
-            readCheckBox.setAttribute('checked', 'checked');
-        }
-        readCheckBox.classList.add('read');
-        readContainer.appendChild(readCheckBox);
+            let readCheckBox = document.createElement('input');
+            readCheckBox.setAttribute('type', 'checkbox');
+            readCheckBox.setAttribute('name', 'read');
+            if(haveRead.checked){
+                readCheckBox.setAttribute('checked', 'checked');
+            }
+            readCheckBox.classList.add('read');
+            readContainer.appendChild(readCheckBox);
 
-        makeHr();
+            makeHr();
 
-        let removeButton = document.createElement('button');
-        removeButton.classList.add('remove');
-        removeButton.textContent = "Remove";
-        removeButton.id = 'remove';
-        newCard.appendChild(removeButton);
-        let allRemoveButtons = document.querySelectorAll('.remove');
-        allRemoveButtons.forEach((e, i) => {
-            removeButton.addEventListener('click', function(){
-                let arrIndex = parseInt(cardDiv.dataset.index);
-                let indexRemove = newCard.dataset.index;
-                library.splice(arrIndex, 1);
-                // removeElements(document.querySelector(`[data-index = '${indexRemove}']`));
-                let test = document.querySelector(`[data-index = '${indexRemove}']`);
-                test.remove();
-                console.log(arrIndex)
-                console.log(library)
+            let removeButton = document.createElement('button');
+            removeButton.classList.add('remove');
+            removeButton.textContent = "Remove";
+            removeButton.id = 'remove';
+            newCard.appendChild(removeButton);
+            let allRemoveButtons = document.querySelectorAll('.remove');
+            allRemoveButtons.forEach((e, i) => {
+                removeButton.addEventListener('click', function(){
+                    let arrIndex = parseInt(cardDiv.dataset.index);
+                    let indexRemove = newCard.dataset.index;
+                    library.splice(arrIndex, 1);
+                    // removeElements(document.querySelector(`[data-index = '${indexRemove}']`));
+                    let test = document.querySelector(`[data-index = '${indexRemove}']`);
+                    test.remove();
+                    console.log(arrIndex)
+                    console.log(library)
+            })
         })
-    })
-    })
+        })
+    }
 }
 
 // function removeCard(){
