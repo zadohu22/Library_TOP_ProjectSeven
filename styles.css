@@ -83,6 +83,10 @@ body {
       justify-self: center;
 }
 
+#initDescription {
+  color: white;
+}
+
 .container .hideDescription {
   display: none;
 }
@@ -174,6 +178,30 @@ label {
   left: 10px;
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
+}
+
+.readBoxHaveRead {
+  border: 1px solid white;
+  background-color: var(--brightGreen);
+  color: white;
+  width: 80%;
+  margin: 0 auto;
+  padding: 5px 0px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.readBoxHaveNotRead {
+  border: 1px solid white;
+  background-color: #792600;
+  color: white;
+  width: 80%;
+  margin: 0 auto;
+  padding: 5px 0px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 .remove {
