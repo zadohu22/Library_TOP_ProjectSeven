@@ -168,6 +168,23 @@ function populateDomWithBookInfo() {
       readCheckBox.classList.add("read");
       readContainer.appendChild(readCheckBox);
 
+      // below is the logic for making the colored buttons for have read
+      // i'll need to do the logic for what happens when you click it
+      // to change from read to haven't read. 
+      // but for now the checkbox works, and i'm honestly so sick of this project. 
+      // moving on for now, but later...probably implement this functionality
+
+      // let readBox = document.createElement('div');
+      // if(library[i].bookInfo() === "true"){
+      //   readBox.classList.add('readBoxHaveRead');
+      //   readBox.textContent = "Have Read";
+      // }else{
+      //   readBox.classList.add('readBoxHaveNotRead');
+      //   readBox.textContent = "Have Not Read";
+      // }
+      
+      // newCard.appendChild(readBox);
+
       makeHr();
 
       let removeButton = document.createElement("button");
