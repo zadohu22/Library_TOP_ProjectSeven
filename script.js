@@ -10,22 +10,22 @@ const initDescription = document.getElementById("initDescription");
 const container = document.getElementById("container");
 const haveRead = document.getElementById("read");
 
-function Book(title, author, pages, haveRead) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.haveRead = haveRead;
+
+class Book{
+  constructor(title, author, pages, haveRead){
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.haveRead = haveRead;
+  }
+
+  bookInfo = () => {
+    return this.haveRead;
+  }
 }
 
-// Book.prototype.bookInfo = function () {
-//   return `${this.title}, ${this.author}, ${this.pages}, ${this.haveRead}`;
-// };
 
-Book.prototype.bookInfo = function () {
-  return `${this.haveRead}`;
-};
 
-console.log(this.haveRead);
 
 (function () {
   addBookButton.addEventListener("click", () => {
@@ -56,17 +56,13 @@ function addBookToLibrary() {
       userInputPages,
       statusOfCheckbox
     );
-    // this.value = newBook;
-    let newBookInfo = newBook.bookInfo();
-    newBookInfo.id = "newBookInfoId";
 
-    console.log(newBook);
-    console.log(newBookInfo);
-    console.log(this);
+
+  
     // push new Book object to the library array
     library.push(newBook);
     // newBook.setAttribute('id', 'newBookObject');
-    console.log(library);
+
     // remove form when submit is clicked.
     form.classList.toggle("hideForm");
 
@@ -157,7 +153,7 @@ function populateDomWithBookInfo() {
       readCheckBox.classList.add("readCheckBox");
       let allCheckBoxes = document.querySelectorAll(".readCheckBox");
 
-      if (library[i].bookInfo() === "true") {
+      if (library[i].bookInfo() === true) {
         readCheckBox.checked = true;
       } else {
         readCheckBox.checked = false;
@@ -200,8 +196,6 @@ function populateDomWithBookInfo() {
           library.splice(arrIndex, 1);
           let test = document.querySelector(`[data-index = '${indexRemove}']`);
           test.remove();
-          console.log(arrIndex);
-          console.log(library);
         });
       });
     });
